@@ -874,6 +874,60 @@
     .internal-links a{ display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:10px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18); color: rgba(255,255,255,.9); text-decoration:none; font-family: var(--font-h); text-transform: uppercase; font-size:12px; letter-spacing:.35px; }
     .internal-links a:hover{ background: rgba(43,134,240,.12); border-color: rgba(59,130,246,.25); }
 
+    .internal-links a:hover{ background: rgba(43,134,240,.12); border-color: rgba(59,130,246,.25); }
+
+/* ===== FINAL MOBILE FIX ===== */
+@media (max-width: 576px){
+
+  /* БОНУСЫ */
+  .bonus-section .bonus-grid{
+    grid-template-columns: 1fr !important;
+  }
+
+  .bonus-section .bonus-card{
+    position: relative !important;
+    overflow: hidden !important;
+    height: auto !important;
+    min-height: 0 !important;
+  }
+
+  .bonus-section .bonus-card > img.card-bg{
+    position: relative !important;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+
+  .bonus-section .bonus-card .card-content-wrapper{
+    position: absolute !important;
+    inset: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    padding-top: 28px !important;
+  }
+
+  /* ПОЛЕЗНЫЕ ССЫЛКИ — В ОДНУ СТРОКУ */
+  .internal-links ul{
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    overflow-x: auto !important;
+    scrollbar-width: none;
+  }
+  .internal-links ul::-webkit-scrollbar{ display:none; }
+
+  .internal-links li{ flex: 0 0 auto !important; }
+
+  .internal-links a{
+    min-height: 34px !important;
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+}
+
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Lucky Bear", "url": "https://luckybear24.ru/", "logo": "https://luckybear24.ru/images/logo-full.png"}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://luckybear24.ru/"}]}</script>
