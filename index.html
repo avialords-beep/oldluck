@@ -775,27 +775,69 @@
       .slider-section-wrapper .slider-item.left-1{ transform: translateX(-250px) scale(.70); }
       .slider-section-wrapper .slider-item.right-1{ transform: translateX(250px) scale(.70); }
 
-      /* ====== BONUS: НЕ РЕЖЕТСЯ И НЕ ТЯНЕТСЯ ====== */
-      .bonus-card{
-        aspect-ratio: 3 / 4 !important; /* форма как карточка */
-      }
-      .bonus-card .card-bg{
-        position:absolute !important;
-        inset:0 !important;
-        width:100% !important;
-        height:100% !important;
-        object-fit: contain !important;     /* КЛЮЧ */
-        object-position: center center !important;
-        background: #0b1220 !important;
-      }
-      .bonus-card .card-content-wrapper{
-        position:absolute !important;
-        inset:0 !important;
-        z-index:2 !important;
-        padding-top: 34px !important;
-        padding-bottom: 18px !important;
-      }
-      .bonus-card .text-container{ min-height: 90px !important; }
+      /* ====== BONUS: КОМПАКТНО КАК НА 2 СКРИНЕ ====== */
+
+  .bonus-grid{
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .bonus-card{
+    aspect-ratio: auto !important;   /* УБИРАЕМ огромную форму */
+    height: 180px !important;        /* КОМПАКТНАЯ высота */
+    border-radius: 22px !important;
+    overflow: hidden !important;
+  }
+
+  .bonus-card .card-bg{
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;      /* ВОТ ЭТО ДАЕТ “КОМПАКТНЫЙ” ВИД */
+    object-position: center !important;
+    filter: saturate(1.05);
+    transform: scale(1.02);            /* чуть плотнее, без “полос” */
+  }
+
+  .bonus-card .card-content-wrapper{
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
+
+    /* центрируем как на 2 скрине */
+    padding: 22px 16px !important;
+    justify-content: center !important;
+    padding-top: 0 !important;         /* убираем твой большой отступ */
+  }
+
+  .bonus-card .icon-wrapper{
+    width: 52px !important;
+    height: 52px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .bonus-card .bonus-icon{
+    width: 52px !important;
+    height: 52px !important;
+  }
+
+  .bonus-card .text-container{
+    min-height: auto !important;
+  }
+
+  .bonus-title, .bonus-subtitle, .bonus-subtitle-fs{
+    font-size: 20px !important;
+  }
+
+  .bonus-title-simple{
+    font-size: 20px !important;
+  }
+
+  .bonus-extra{
+    font-size: 13px !important;
+    margin-top: 6px !important;
+  }
 
       /* ====== ПОЛЕЗНЫЕ ССЫЛКИ: 1 СТРОКА, МАЛЕНЬКО ====== */
       .internal-links ul{
