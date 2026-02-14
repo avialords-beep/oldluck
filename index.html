@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuckyBear Casino — Вход и регистрация | Бонусы до 360% + FS</title>
+
+  <meta name="description" content="LuckyBear Casino: быстрый вход и регистрация. Бонусы до 360% + фриспины. Играй на сайте или в Telegram." />
+  <meta name="theme-color" content="#0b1220" />
+
+  
+
+  <link rel="canonical" href="https://luckybear24.ru/" />
+
+  <meta name="robots" content="index,follow" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Lucky Bear" />
+  <meta property="og:title" content="LuckyBear Casino — Вход и регистрация | Бонусы до 360% + FS" />
+  <meta property="og:description" content="LuckyBear Casino: быстрый вход и регистрация. Бонусы до 360% + фриспины. Играй на сайте или в Telegram." />
+  <meta property="og:url" content="https://luckybear24.ru/" />
+  <meta property="og:image" content="https://luckybear24.ru/images/og.jpg" />
+
+<link rel="icon" href="images/favlogo.png" sizes="any" />
+
+  <!-- Preload critical fonts (local files) -->
+  <link rel="preload" href="fonts/Widocktrialbold.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="fonts/FindSansPro-Regular.ttf" as="font" type="font/ttf" crossorigin />
+
+  <!-- Preload key images (adjust if you have WebP versions) -->
+  <link rel="preload" href="images/logo-full.png" as="image" />
+  <link rel="preload" href="images/fon.png" as="image" />
+
+  <style>
+    /* ============================================================
+       FAST + MODERN: меньше тяжёлых фильтров, больше “стекла” и CTA
+       ============================================================ */
+
+    /* Fonts */
+    @font-face {
+      font-family: "Widocktrial";
+      src: url("fonts/Widocktrialbold.woff2") format("woff2"),
+           url("fonts/Widocktrialbold.otf") format("opentype");
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "FindSansPro";
+      src: url("fonts/FindSansPro-Regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+
+    :root{
+      --bg-0:#07070a;
+      --bg-1:#0b1220;
+      --card:#101827cc;              /* semi glass */
+      --card-solid:#101827;
+      --stroke:rgba(255,255,255,.08);
+      --text:#ffffff;
+      --muted:rgba(255,255,255,.72);
+      --muted2:rgba(255,255,255,.55);
+      --blue:#2b86f0;
+      --blue2:#3b82f6;
+      --green:#22c55e;
+      --shadow: 0 16px 60px rgba(0,0,0,.45);
+      --radius: 24px;
+      --radius2: 18px;
+      --max: 1200px;
+      --font-h: "Widocktrial", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --font-b: "FindSansPro", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    html { scroll-behavior:smooth; }
+    * { box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: var(--font-b);
+      color: var(--text);
+      background: radial-gradient(1200px 700px at 50% 0%, rgba(43,134,240,.18), transparent 60%),
+                  radial-gradient(900px 500px at 20% 10%, rgba(59,130,246,.16), transparent 55%),
+                  radial-gradient(900px 500px at 80% 15%, rgba(34,197,94,.08), transparent 55%),
+                  linear-gradient(180deg, var(--bg-1), var(--bg-0) 65%, #05050a);
+      overflow-x:hidden;
+    }
+
+    /* Background image — WITHOUT expensive blur filter */
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        linear-gradient(180deg, rgba(5,5,10,.75), rgba(5,5,10,.55) 35%, rgba(5,5,10,.85)),
+        url("images/fon.png") center/cover no-repeat;
+      opacity:.65;
+      z-index:-2;
+      transform: translateZ(0);
+    }
+
+    /* Subtle grain (cheap) */
+    body::after{
+      content:"";
+      position:fixed;
+      inset:0;
+      background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+      background-size: 18px 18px;
+      opacity:.12;
+      z-index:-1;
+      pointer-events:none;
+    }
+
+    .container{
+      width:100%;
+      max-width: var(--max);
+      margin:0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(7,7,10,.55);
+      border-bottom:1px solid var(--stroke);
+    }
+    .main-nav{
+      max-width: var(--max);
+      margin:0 auto;
+      padding: 12px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .nav-list{
+      display:flex;
+      gap:20px;
+      list-style:none;
+      padding:0;
+      margin:0;
+      flex:1;
+      min-width: 0;
+    }
+    .nav-left{ justify-content:flex-end; }
+    .nav-right{ justify-content:flex-start; }
+    .nav-list a{
+      color: var(--muted);
+      text-decoration:none;
+      font-size: 14px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      transition: background .2s ease, color .2s ease;
+      white-space:nowrap;
+    }
+    .nav-list a:hover{
+      background: rgba(43,134,240,.12);
+      color: #fff;
+    }
+    .logo{
+      text-decoration:none;
+      padding: 0 10px;
+      flex: 0 0 auto;
+    }
+    .logo img{
+      height: 44px;
+      width:auto;
+      display:block;
+    }
+
+    /* Hero */
+    .hero{
+      padding: 42px 0 10px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 26px;
+      align-items:center;
+      padding: 26px 0 8px;
+    }
+    .hero-card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 250px at 30% 10%, rgba(59,130,246,.35), transparent 55%),
+                  radial-gradient(500px 250px at 75% 0%, rgba(34,197,94,.18), transparent 60%);
+      opacity:.65;
+      z-index:0;
+    }
+    .hero-inner{
+      position:relative;
+      z-index:1;
+      padding: 28px 26px;
+    }
+    .hero-title{
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      line-height: 1.05;
+      font-size: clamp(30px, 4vw, 52px);
+      margin: 0 0 14px;
+    }
+    .hero-title .line-blue{ color: var(--blue2); }
+    .hero-sub{
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.5;
+      max-width: 56ch;
+    }
+
+    /* --- Hero layout refinements (less "wall of text") --- */
+    .hero-kicker{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      margin: 0 0 14px;
+      flex-wrap:wrap;
+    }
+    .kicker-badge{
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      letter-spacing: .6px;
+      font-size: 14px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(59,130,246,.35);
+      background: rgba(59,130,246,.10);
+      color:#fff;
+    }
+    .kicker-text{
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      letter-spacing: .55px;
+      font-size: 14px;
+      color: rgba(255,255,255,.75);
+    }
+    .hero-title{
+      margin: 0 0 12px;
+      max-width: 18ch;
+      line-height: 1.02;
+    }
+    .hero-em{
+      color: var(--blue2);
+      text-shadow: 0 14px 40px rgba(43,134,240,.25);
+    }
+    .hero-copy{
+      display:grid;
+      gap: 14px;
+      padding-top: 12px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      margin-top: 14px;
+    }
+    .hero-sub{
+      margin: 0;
+      max-width: 60ch;
+      font-size: 15px;
+    }
+    .hero-bullets{
+      margin: 0;
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .pill{
+      justify-content:center;
+      padding: 10px 12px;
+      background: rgba(0,0,0,.14);
+    }
+    @media (max-width: 700px){
+      .hero-title{ max-width: 22ch; }
+      .hero-bullets{ grid-template-columns: 1fr; }
+      .pill{ justify-content:flex-start; }
+    }
+
+    .hero-bullets{
+      display:flex;
+      gap: 10px;
+      flex-wrap:wrap;
+      margin: 0 0 22px;
+      padding: 0;
+      list-style:none;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.86);
+      font-size: 13px;
+    }
+    .dot{
+      width: 8px; height: 8px; border-radius: 999px;
+      background: var(--green);
+      box-shadow: 0 0 0 3px rgba(34,197,94,.18);
+      flex:0 0 auto;
+    }
+
+    .cta-row{
+      display:flex;
+      gap: 12px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 14px 18px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.10);
+      text-decoration:none;
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      letter-spacing:.4px;
+      font-size: 14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      will-change: transform;
+    }
+    .btn:active{ transform: translateY(1px); }
+    .btn-primary{
+      background: linear-gradient(135deg, rgba(43,134,240,1), rgba(59,130,246,1));
+      border-color: rgba(59,130,246,.45);
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(43,134,240,.28);
+    }
+    .btn-primary:hover{ transform: translateY(-1px); }
+    .btn-secondary{
+      background: rgba(255,255,255,.06);
+      color:#fff;
+    }
+    .btn-secondary:hover{
+      background: rgba(255,255,255,.10);
+      transform: translateY(-1px);
+    }
+    .btn img{
+      width:18px; height:18px;
+      object-fit:contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .trust{
+      margin-top: 14px;
+      display:flex;
+      gap: 16px;
+      flex-wrap:wrap;
+      color: var(--muted2);
+      font-size: 13px;
+    }
+
+    /* Right mini card (registration hook) */
+    .side-card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      position:relative;
+      overflow:hidden;
+    }
+    .side-card h3{
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height:1.15;
+    }
+    .side-card p{
+      margin:0 0 14px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.5;
+    }
+    .side-card .mini{
+      display:grid;
+      gap:10px;
+    }
+    .mini-row{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+      padding: 10px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.18);
+      color: rgba(255,255,255,.90);
+      font-size: 13px;
+    }
+    .mini-row b{ font-family: var(--font-h); font-weight:700; }
+
+    /* Section titles */
+    .section-title{
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      text-align:center;
+      font-size: clamp(22px, 3.2vw, 42px);
+      line-height:1.15;
+      margin: 0 0 26px;
+    }
+    .section-title .text-blue{ color: var(--blue2); }
+
+    /* Games slider section */
+    .slider-section-wrapper{
+      padding: 56px 20px 66px;
+      position:relative;
+      z-index:2;
+    }
+    .slider-section-wrapper .title{
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: clamp(22px, 3.2vw, 42px);
+      margin: 0 0 22px;
+      text-align:center;
+    }
+    .slider-section-wrapper .title span{ color: var(--blue2); }
+    .slider-section-wrapper .slider-container{
+      position:relative;
+      width:100%;
+      height: 320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      margin-bottom: 22px;
+    }
+    .slider-section-wrapper .slider-item{
+      width: 290px;
+      height: 290px;
+      border-radius: 28px;
+      position:absolute;
+      opacity:0;
+      transition: transform 1.0s ease, opacity 1.0s ease;
+      box-shadow: 0 16px 60px rgba(0,0,0,.35);
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: var(--card-solid);
+    }
+    .slider-item img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .slider-section-wrapper .slider-item.center{ transform: translateX(0) scale(1); opacity:1; z-index:5; }
+    .slider-section-wrapper .slider-item.left-1{ transform: translateX(-280px) scale(.70); opacity:.75; z-index:4; }
+    .slider-section-wrapper .slider-item.right-1{ transform: translateX(280px) scale(.70); opacity:.75; z-index:4; }
+    .slider-section-wrapper .slider-item.left-2{ transform: translateX(-470px) scale(.48); opacity:.45; z-index:3; }
+    .slider-section-wrapper .slider-item.right-2{ transform: translateX(470px) scale(.48); opacity:.45; z-index:3; }
+    .slider-section-wrapper .slider-item.hidden-left{ transform: translateX(-610px) scale(.32); opacity:0; z-index:1; }
+    .slider-section-wrapper .slider-item.hidden-right{ transform: translateX(610px) scale(.32); opacity:0; z-index:1; }
+
+    .slider-buttons-container{
+      display:flex;
+      gap: 12px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+
+    /* Bonus cards */
+    .bonus-section{
+      width:100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 20px 60px;
+      position:relative;
+      z-index:2;
+    }
+    .bonus-grid{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      width:100%;
+    }
+    .bonus-card{
+      position:relative;
+      transition: transform .2s ease, box-shadow .2s ease;
+      border-radius: 18px;
+      overflow:hidden;
+    }
+    .bonus-card:hover{
+      transform: translateY(-3px);
+      box-shadow: 0 20px 55px rgba(0,0,0,.35);
+    }
+    .card-bg{
+      width:100%;
+      height:auto;
+      display:block;
+      border-radius: 18px;
+    }
+    .card-content-wrapper{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      padding-top: 52px;
+    }
+    .icon-wrapper{ position:relative; width:60px; height:60px; margin-bottom: 18px; }
+    .bonus-icon{ width:60px; height:60px; position:absolute; left:0; top:0; transition: opacity .35s ease; }
+    .text-container{ position:relative; min-height: 110px; width:100%; display:flex; align-items:center; justify-content:center; }
+    .bonus-state{ position:absolute; width:100%; padding: 0 14px; transition: opacity .35s ease; }
+    .bonus-default-state{ opacity:1; z-index:2; }
+    .bonus-hover-state{ opacity:0; z-index:1; }
+    .bonus-card.inactive:hover .icon-open{ opacity:1; }
+    .bonus-card.inactive:hover .icon-closed{ opacity:0; }
+    .bonus-card.inactive:hover .bonus-default-state{ opacity:0; }
+    .bonus-card.inactive:hover .bonus-hover-state{ opacity:1; z-index:2; }
+    .bonus-card.active .icon-open{ opacity:1; }
+    .bonus-card.active .icon-closed{ opacity:0; }
+    .bonus-card.active .bonus-default-state{ display:none; }
+    .bonus-card.active .bonus-hover-state{ opacity:1; z-index:2; }
+
+    .bonus-title, .bonus-subtitle, .bonus-subtitle-fs, .bonus-title-simple{
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      display:block;
+      line-height:1.1;
+    }
+    .bonus-title-simple{ font-size: 22px; margin-bottom: 6px; }
+    .bonus-title, .bonus-subtitle, .bonus-subtitle-fs{ font-size: 20px; }
+    .bonus-extra{
+      font-family: var(--font-b);
+      font-size: 14px;
+      color: rgba(255,255,255,.78);
+      margin-top: 8px;
+      display:block;
+    }
+    .bonus-details{ filter: blur(6px); opacity:.45; transition: all .35s ease; }
+
+    .bonus-cta-wrap{
+      display:flex;
+      justify-content:center;
+      margin-top: 18px;
+    }
+    .bonus-button{
+      cursor:pointer;
+      border: none;
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      letter-spacing:.4px;
+      padding: 14px 22px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(43,134,240,1), rgba(59,130,246,1));
+      color:#fff;
+      box-shadow: 0 12px 30px rgba(43,134,240,.28);
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .bonus-button:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+    .bonus-button:active{ transform: translateY(1px); }
+
+    /* Features */
+    .features-section{
+      padding: 56px 0 70px;
+      position:relative;
+      z-index:2;
+    }
+    .features-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .feature-card{
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      border-radius: var(--radius);
+      padding: 18px;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .feature-card:hover{
+      transform: translateY(-3px);
+      border-color: rgba(59,130,246,.35);
+      box-shadow: 0 18px 60px rgba(0,0,0,.35);
+    }
+    .feature-card-header{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .feature-icon-placeholder{
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      background: rgba(59,130,246,.10);
+      border:1px solid rgba(59,130,246,.18);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+      overflow:hidden;
+    }
+    .feature-card h3{
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      margin:0;
+      font-size: 15px;
+      letter-spacing:.3px;
+    }
+    .feature-card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.6;
+    }
+
+    /* Footer */
+    .footer-section{
+      padding: 46px 0 26px;
+      background: rgba(5,5,10,.75);
+      border-top: 1px solid var(--stroke);
+      position:relative;
+      z-index:2;
+    }
+    .footer-logo{ display:inline-block; margin-bottom: 18px; }
+    .footer-responsible-text{
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 16px;
+    }
+    .footer-nav{
+      display:flex;
+      justify-content:center;
+      gap: 14px;
+      flex-wrap:wrap;
+      margin-bottom: 18px;
+    }
+    .footer-nav a{
+      color: rgba(255,255,255,.82);
+      text-decoration:none;
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing:.35px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.18);
+      transition: background .2s ease, border-color .2s ease;
+    }
+    .footer-nav a:hover{
+      background: rgba(43,134,240,.12);
+      border-color: rgba(59,130,246,.25);
+    }
+    .footer-divider{
+      border:none;
+      height:1px;
+      background: rgba(255,255,255,.10);
+      margin: 18px 0;
+    }
+    .footer-seo-block{
+      font-size: 12px;
+      color: rgba(255,255,255,.62);
+      line-height: 1.7;
+      margin-bottom: 14px;
+      text-align: left;
+    }
+    .footer-copyright{
+      font-size: 13px;
+      color: rgba(255,255,255,.70);
+      margin:0;
+    }
+
+    /* Modal */
+    .modal-overlay{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.78);
+      backdrop-filter: blur(6px);
+      z-index: 10000;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      opacity:0;
+      visibility:hidden;
+      transition: opacity .35s ease, visibility .35s ease;
+      padding: 18px;
+    }
+    .modal-overlay.show{ opacity:1; visibility:visible; }
+    .modal-content{
+      width: 100%;
+      max-width: 420px;
+      background: rgba(16,24,39,.92);
+      border: 1px solid rgba(59,130,246,.45);
+      border-radius: 26px;
+      box-shadow: 0 25px 90px rgba(0,0,0,.6);
+      padding: 26px 22px 22px;
+      position:relative;
+      transform: translateY(8px) scale(.98);
+      transition: transform .35s cubic-bezier(.2,.8,.2,1);
+    }
+    .modal-overlay.show .modal-content{ transform: translateY(0) scale(1); }
+    .close-modal{
+      position:absolute;
+      right: 14px;
+      top: 10px;
+      font-size: 30px;
+      color: rgba(255,255,255,.65);
+      cursor:pointer;
+      line-height:1;
+      transition: color .2s ease;
+      user-select:none;
+    }
+    .close-modal:hover{ color:#fff; }
+    .modal-logo{ height: 52px; width:auto; display:block; margin: 0 auto 12px; }
+    .modal-title{
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      text-align:center;
+      font-size: 22px;
+      line-height:1.15;
+      margin: 0 0 16px;
+    }
+    .modal-title span{ color: var(--blue2); font-size: 30px; }
+    .modal-btn{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      text-decoration:none;
+      font-family: var(--font-h);
+      text-transform: uppercase;
+      letter-spacing:.4px;
+      background: linear-gradient(135deg, rgba(43,134,240,1), rgba(59,130,246,1));
+      color:#fff;
+      box-shadow: 0 14px 40px rgba(43,134,240,.25);
+      transition: transform .15s ease, filter .15s ease;
+    }
+    .modal-btn:hover{ transform: translateY(-1px); filter: brightness(1.05); }
+    .modal-btn:active{ transform: translateY(1px); }
+
+    /* Responsiveness */
+    @media (max-width: 992px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .nav-left, .nav-right{ justify-content:center; }
+      .main-nav{ flex-wrap:wrap; }
+      .nav-list{ flex: 1 1 320px; justify-content:center; }
+      .features-grid{ grid-template-columns: repeat(2, 1fr); }
+      .bonus-grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 576px){
+      .nav-list{ gap: 10px; }
+      .nav-list a{ font-size: 13px; padding: 8px 10px; }
+      .logo img{ height: 40px; }
+      .features-grid{ grid-template-columns: 1fr; }
+      .bonus-grid{ grid-template-columns: 1fr; }
+      .slider-section-wrapper .slider-container{ height: 300px; }
+      .slider-section-wrapper .slider-item{ width: 260px; height: 260px; }
+      .slider-section-wrapper .slider-item.left-1{ transform: translateX(-250px) scale(.70); }
+      .slider-section-wrapper .slider-item.right-1{ transform: translateX(250px) scale(.70); }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ scroll-behavior:auto !important; }
+      .slider-section-wrapper .slider-item{ transition:none !important; }
+      .bonus-card, .btn, .bonus-button, .feature-card{ transition:none !important; }
+    }
+  
+    /* Extra sections (telegram/faq/reviews) in same style */
+    .content-section{ padding: 56px 0 70px; position:relative; z-index:2; }
+    .glass-card{ background: var(--card); border:1px solid var(--stroke); border-radius: var(--radius); box-shadow: var(--shadow); padding: 22px; }
+    .prose{ color: var(--muted); font-size: 15px; line-height: 1.7; }
+    .prose h3{ font-family: var(--font-h); text-transform: uppercase; letter-spacing:.35px; font-size: 16px; margin: 18px 0 10px; color:#fff; }
+    .prose p{ margin: 0 0 12px; }
+    .prose ul{ margin: 0 0 12px; padding-left: 18px; }
+    .prose li{ margin: 6px 0; }
+    .faq-list details{ border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18); border-radius: 16px; padding: 10px 12px; margin: 10px 0; }
+    .faq-list summary{ cursor:pointer; font-family: var(--font-h); text-transform: uppercase; letter-spacing:.35px; font-size: 13px; color: rgba(255,255,255,.92); }
+    .faq-list details p{ margin: 10px 0 0; color: rgba(255,255,255,.72); }
+    .review-list{ list-style:none; padding:0; margin:0; display:grid; gap:12px; }
+    .review-item{ border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18); border-radius: 16px; padding: 12px; }
+    .review-top{ display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; color: rgba(255,255,255,.85); font-size: 13px; }
+    .stars{ letter-spacing: 1px; white-space:nowrap; }
+    .internal-links{ margin-top: 18px; }
+    .internal-links h3{ font-family: var(--font-h); text-transform: uppercase; letter-spacing:.35px; margin:0 0 10px; font-size:14px; }
+    .internal-links ul{ list-style:none; margin:0; padding:0; display:flex; flex-wrap:wrap; gap:10px; }
+    .internal-links a{ display:inline-flex; align-items:center; justify-content:center; min-height:48px; padding:10px 14px; border-radius:14px; border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.18); color: rgba(255,255,255,.9); text-decoration:none; font-family: var(--font-h); text-transform: uppercase; font-size:12px; letter-spacing:.35px; }
+    .internal-links a:hover{ background: rgba(43,134,240,.12); border-color: rgba(59,130,246,.25); }
+
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Lucky Bear", "url": "https://luckybear24.ru/", "logo": "https://luckybear24.ru/images/logo-full.png"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://luckybear24.ru/"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Как зайти в личный кабинет?", "acceptedAnswer": {"@type": "Answer", "text": "Нажми «Играть на сайте» или «Играть в TG». Это два быстрых пути входа: через сайт или Telegram."}}, {"@type": "Question", "name": "Что делать, если страница не открывается?", "acceptedAnswer": {"@type": "Answer", "text": "Проверь интернет, включи VPN по необходимости. Если нужно — заходи через Telegram."}}, {"@type": "Question", "name": "Можно ли играть с телефона?", "acceptedAnswer": {"@type": "Answer", "text": "Да, интерфейс адаптирован под мобильные устройства, кнопки и текст читаемые на экранах смартфонов."}}, {"@type": "Question", "name": "Как получить бонус?", "acceptedAnswer": {"@type": "Answer", "text": "После регистрации доступны бонусы. Выбери пакет в разделе «Бонусы» и активируй его через кнопку."}}, {"@type": "Question", "name": "Где посмотреть игры?", "acceptedAnswer": {"@type": "Answer", "text": "В блоке «Найди свою игру» представлены популярные слоты, можно перейти в игру через кнопку."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Review", "itemReviewed": {"@type": "Organization", "name": "Lucky Bear", "url": "https://luckybear24.ru/"}, "reviewRating": {"@type": "Rating", "ratingValue": "4.7", "bestRating": "5"}, "author": {"@type": "Person", "name": "Игроки"}, "reviewBody": "Отзывы пользователей о дизайне и удобстве сайта Lucky Bear."}</script>
+
+<script type="application/ld+json">...</script>
+<script type="application/ld+json">...</script>
+<script type="application/ld+json">...</script>
+<script type="application/ld+json">...</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j=0;j<document.scripts.length;j++) {if (document.scripts[j].src===r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+   ym(106830183, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/106830183" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+</head>
+
+<body>
+  <header class="site-header">
+    <nav class="main-nav">
+      <ul class="nav-list nav-left">
+        <li><a href="#games">Игры</a></li>
+        <li><a href="#bonuses">Бонусы</a></li>
+        <li><a href="#vhod">Вход</a></li>
+        <li><a href="#registraciya">Регистрация</a></li>
+      </ul>
+
+      <a href="#top" class="logo" aria-label="Lucky Bear">
+        <img src="images/logo-full.png" alt="Lucky Bear Logo" width="220" height="44" decoding="async" />
+      </a>
+
+      <ul class="nav-list nav-right">
+        <li><a href="#features">Преимущества</a></li>
+        <li><a href="#telegram">Telegram</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#otzyvy">Отзывы</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <div class="hero-card">
+            <div class="hero-inner">
+              <div class="hero-kicker" aria-label="Бренд">
+              <span class="kicker-badge">LUCKY BEAR</span>
+              <span class="kicker-text">казино</span>
+            </div>
+
+            <h1 class="hero-title">
+              ТВОЯ БЕРЛОГА<br/>
+              <span class="hero-em">КРУПНЫХ</span> ВЫИГРЫШЕЙ
+            </h1>
+
+              <div class="hero-copy">
+            <p class="hero-sub">
+                Забирай приветственный пакет: <b>до 360%</b> и фриспины.
+                Вход — за пару кликов: на сайте или в Telegram.
+              </p>
+
+              <ul class="hero-bullets" aria-label="Ключевые преимущества">
+                <li class="pill"><span class="dot"></span> Быстрые выплаты</li>
+                <li class="pill"><span class="dot"></span> Поддержка 24/7</li>
+                <li class="pill"><span class="dot"></span> Тысячи игр</li>
+              </ul>
+          </div>
+
+              <div class="cta-row">
+                <a class="btn btn-primary" href="https://lbgame777.xyz/8AsylI">
+                  <img src="images/www.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                  Играть на сайте
+                </a>
+                <a class="btn btn-secondary" href="https://t.me/+KDEEIyDP6yYzMDUy">
+                  <img src="images/tgw.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                  Играть в TG
+                </a>
+              </div>
+
+              <div class="trust" aria-label="Доверие">
+                <span>🔒 Шифрование и защита данных</span>
+                <span>⚡ Быстрый вход</span>
+                <span>🎁 Бонус сразу после регистрации</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="side-card" aria-label="Быстрый старт">
+            <h3>Быстрый старт</h3>
+            <p>3 шага — и ты в игре.</p>
+            <div class="mini">
+              <div class="mini-row"><span>1) Нажми</span><b>“Играть”</b></div>
+              <div class="mini-row"><span>2) Пройди</span><b>Регистрацию</b></div>
+              <div class="mini-row"><span>3) Забери</span><b>Бонус</b></div>
+            
+              <div class="mini-row"><span>Игроков онлайн</span><b id="statOnline">1 247</b></div>
+              <div class="mini-row"><span>Выигрышей сегодня</span><b id="statWins">24 568 432 ₽</b></div>
+</div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="games" class="slider-section-wrapper">
+      <h2 class="title">Найди <span>свою</span> игру</h2>
+
+      <div class="slider-container" aria-label="Слайдер игр">
+        <div class="slider-item"><img src="images/game1.png" alt="Игра 1" loading="lazy" decoding="async"></div>
+        <div class="slider-item"><img src="images/game2.png" alt="Игра 2" loading="lazy" decoding="async"></div>
+        <div class="slider-item"><img src="images/game3.png" alt="Игра 3" loading="lazy" decoding="async"></div>
+        <div class="slider-item"><img src="images/game4.png" alt="Игра 4" loading="lazy" decoding="async"></div>
+        <div class="slider-item"><img src="images/game5.png" alt="Игра 5" loading="lazy" decoding="async"></div>
+        <div class="slider-item"><img src="images/game6.png" alt="Игра 6" loading="lazy" decoding="async"></div>
+        <div class="slider-item"><img src="images/game7.png" alt="Игра 7" loading="lazy" decoding="async"></div>
+        <div class="slider-item"><img src="images/game8.png" alt="Игра 8" loading="lazy" decoding="async"></div>
+        <div class="slider-item"><img src="images/game9.png" alt="Игра 9" loading="lazy" decoding="async"></div>
+        <div class="slider-item"><img src="images/game10.png" alt="Игра 10" loading="lazy" decoding="async"></div>
+      </div>
+
+      <div class="slider-buttons-container">
+        <a href="https://lbgame777.xyz/8AsylI" class="btn btn-primary">
+          <img src="images/www.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          Играть на сайте
+        </a>
+        <a href="https://t.me/+KDEEIyDP6yYzMDUy" class="btn btn-secondary">
+          <img src="images/tgw.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+          Играть в TG
+        </a>
+      </div>
+    </section>
+
+    <section id="bonuses" class="bonus-section">
+      <h2 class="section-title">Забирай <span class="text-blue">бонус</span> по шагам</h2>
+
+      <div class="bonus-grid">
+        <div class="bonus-card active">
+          <img src="images/bluecard.png" alt="Бонус 1" class="card-bg" loading="lazy" decoding="async">
+          <div class="card-content-wrapper">
+            <div class="icon-wrapper">
+              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async">
+              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async">
+            </div>
+            <div class="text-container">
+              <div class="bonus-state bonus-hover-state">
+                <span class="bonus-title">БОНУС</span>
+                <span class="bonus-subtitle">ДО 360%</span>
+                <span class="bonus-extra">на 1 пополнение</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bonus-card inactive">
+          <img src="images/blackcard.png" alt="Бонус 2" class="card-bg" loading="lazy" decoding="async">
+          <div class="card-content-wrapper">
+            <div class="icon-wrapper">
+              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async">
+              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async">
+            </div>
+            <div class="text-container">
+              <div class="bonus-state bonus-default-state">
+                <span class="bonus-title-simple">БОНУС</span>
+                <div class="bonus-details">
+                  <span class="bonus-title">до 360%</span>
+                  <span class="bonus-extra">на 2 пополнение</span>
+                </div>
+              </div>
+              <div class="bonus-state bonus-hover-state">
+                <span class="bonus-title">БОНУС</span>
+                <span class="bonus-subtitle">ДО 360%</span>
+                <span class="bonus-extra">на 2 пополнение</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bonus-card inactive">
+          <img src="images/blackcard.png" alt="Бонус 3" class="card-bg" loading="lazy" decoding="async">
+          <div class="card-content-wrapper">
+            <div class="icon-wrapper">
+              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async">
+              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async">
+            </div>
+            <div class="text-container">
+              <div class="bonus-state bonus-default-state">
+                <span class="bonus-title-simple">БОНУС</span>
+                <div class="bonus-details">
+                  <span class="bonus-title">до 360%</span>
+                  <span class="bonus-subtitle-fs">+ 50 FS</span>
+                  <span class="bonus-extra">на 3 пополнение</span>
+                </div>
+              </div>
+              <div class="bonus-state bonus-hover-state">
+                <span class="bonus-title">БОНУС</span>
+                <span class="bonus-subtitle">ДО 360%</span>
+                <span class="bonus-subtitle-fs">+ 50 FS</span>
+                <span class="bonus-extra">на 3 пополнение</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="bonus-card inactive">
+          <img src="images/blackcard.png" alt="Бонус 4" class="card-bg" loading="lazy" decoding="async">
+          <div class="card-content-wrapper">
+            <div class="icon-wrapper">
+              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async">
+              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async">
+            </div>
+            <div class="text-container">
+              <div class="bonus-state bonus-default-state">
+                <span class="bonus-title-simple">БОНУС</span>
+                <div class="bonus-details">
+                  <span class="bonus-title">до 360%</span>
+                  <span class="bonus-subtitle-fs">+ 200 FS</span>
+                  <span class="bonus-extra">на 4 пополнение</span>
+                </div>
+              </div>
+              <div class="bonus-state bonus-hover-state">
+                <span class="bonus-title">БОНУС</span>
+                <span class="bonus-subtitle">ДО 360%</span>
+                <span class="bonus-subtitle-fs">+ 200 FS</span>
+                <span class="bonus-extra">на 4 пополнение</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bonus-cta-wrap">
+        <a href="https://lbgame777.xyz/8AsylI"><button class="bonus-button">Забрать бонус</button></a>
+      </div>
+    </section>
+
+    <section id="features" class="features-section">
+      <div class="container">
+        <h2 class="section-title">Почему игроки выбирают <span class="text-blue">нас</span></h2>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-placeholder">
+                <img src="images/icon-payouts.png" alt="" aria-hidden="true" width="36" height="36" loading="lazy" decoding="async">
+              </div>
+              <h3>Быстрые выплаты</h3>
+            </div>
+            <p>Моментальное пополнение и быстрый вывод средств без лишних задержек и комиссий.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-placeholder">
+                <img src="images/icon-support.png" alt="" aria-hidden="true" width="36" height="36" loading="lazy" decoding="async">
+              </div>
+              <h3>Поддержка 24/7</h3>
+            </div>
+            <p>Команда на связи круглосуточно и поможет с любым вопросом.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-placeholder">
+                <img src="images/icon-games.png" alt="" aria-hidden="true" width="36" height="36" loading="lazy" decoding="async">
+              </div>
+              <h3>Большой выбор игр</h3>
+            </div>
+            <p>Слоты и лайв-игры от популярных провайдеров — найдёшь свой стиль.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-placeholder">
+                <img src="images/icon-bonus.png" alt="" aria-hidden="true" width="36" height="36" loading="lazy" decoding="async">
+              </div>
+              <h3>Щедрые бонусы</h3>
+            </div>
+            <p>Приветственные пакеты, акции и кэшбэк — бонусы не только “для галочки”.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-placeholder">
+                <img src="images/icon-security.png" alt="" aria-hidden="true" width="36" height="36" loading="lazy" decoding="async">
+              </div>
+              <h3>Безопасность</h3>
+            </div>
+            <p>Надёжное шифрование для защиты данных и платежей.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-card-header">
+              <div class="feature-icon-placeholder">
+                <img src="images/icon-mobile.png" alt="" aria-hidden="true" width="36" height="36" loading="lazy" decoding="async">
+              </div>
+              <h3>Мобильная версия</h3>
+            </div>
+            <p>Комфортная игра с телефона — интерфейс адаптирован под любые экраны.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="telegram" class="content-section">
+      <div class="container">
+        <h2 class="section-title">Telegram <span class="text-blue">канал</span> и бот</h2>
+        <div class="glass-card">
+          <div class="prose">
+            <p>Подписка в Telegram — самый быстрый способ получать новости, уведомления об акциях и прямые ссылки на вход. Если сайт открывается нестабильно, Telegram помогает быстро перейти в игру и не терять бонусы.</p>
+            <h3>Что даёт Telegram</h3>
+            <ul>
+              <li>Быстрый вход в пару кликов без лишних форм.</li>
+              <li>Уведомления об акциях, фриспинах и промокодах.</li>
+              <li>Поддержка и ответы на частые вопросы.</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn-secondary" href="https://t.me/+KDEEIyDP6yYzMDUy">
+                <img src="images/tgw.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                Открыть в TG
+              </a>
+            </div>
+
+            <div class="internal-links">
+              <h3>Полезные ссылки</h3>
+              <ul>
+                <li><a href="#vhod">Вход</a></li>
+                <li><a href="#registraciya">Регистрация</a></li>
+                <li><a href="#bonuses">Бонусы</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#otzyvy">Отзывы</a></li>
+                <li><a href="#games">Игры</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vhod" class="content-section">
+      <div class="container">
+        <h2 class="section-title">Официальный <span class="text-blue">вход</span></h2>
+        <div class="glass-card">
+          <div class="prose">
+            <p>Вход рассчитан на быстрый доступ: переход на сайт или запуск через Telegram. Если не получается зайти, чаще всего помогает обновление страницы, очистка кеша или переход через альтернативный канал.</p>
+            <h3>Проблемы со входом</h3>
+            <ul>
+              <li>Проверь подключение к сети и отключи VPN/прокси.</li>
+              <li>Очисти кеш и куки, перезапусти браузер.</li>
+              <li>Попробуй вход через Telegram — это самый быстрый путь.</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://lbgame777.xyz/8AsylI">
+                <img src="images/www.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                Перейти к входу
+              </a>
+              <a class="btn btn-secondary" href="https://t.me/+KDEEIyDP6yYzMDUy">
+                <img src="images/tgw.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                Войти через TG
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="registraciya" class="content-section">
+      <div class="container">
+        <h2 class="section-title">Быстрая <span class="text-blue">регистрация</span></h2>
+        <div class="glass-card">
+          <div class="prose">
+            <p>Регистрация занимает минимум времени: переходишь на сайт, создаёшь аккаунт и сразу получаешь доступ к бонусам. Для удобства можно играть через Telegram, не теряя быстрый вход.</p>
+            <h3>Как зарегистрироваться</h3>
+            <ul>
+              <li>Открой кнопку «Играть на сайте» и перейди в форму регистрации.</li>
+              <li>Заполни базовые данные и подтверди контакт.</li>
+              <li>Активируй приветственный пакет и начинай игру.</li>
+            </ul>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="https://lbgame777.xyz/8AsylI">
+                <img src="images/www.png" alt="" aria-hidden="true" loading="lazy" decoding="async" />
+                Зарегистрироваться
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="content-section">
+      <div class="container">
+        <h2 class="section-title">FAQ — <span class="text-blue">вопросы</span> и ответы</h2>
+        <div class="glass-card">
+          <div class="prose faq-list">
+            <details open><summary>Как зайти в личный кабинет?</summary><p>Нажми «Играть на сайте» или «Играть в TG». Это два быстрых пути входа: через сайт или Telegram.</p></details>
+            <details><summary>Что делать, если страница не открывается?</summary><p>Проверь интернет, включи VPN по необходимости. Если нужно — заходи через Telegram.</p></details>
+            <details><summary>Можно ли играть с телефона?</summary><p>Да, интерфейс адаптирован под мобильные устройства, кнопки и текст читаемые на экранах смартфонов.</p></details>
+            <details><summary>Как получить бонус?</summary><p>После регистрации доступны бонусы. Выбери пакет в разделе «Бонусы» и активируй его через кнопку.</p></details>
+            <details><summary>Где посмотреть игры?</summary><p>В блоке «Найди свою игру» представлены популярные слоты, можно перейти в игру через кнопку.</p></details>
+          </div>
+
+          <div class="internal-links">
+            <h3>Полезные ссылки</h3>
+            <ul>
+              <li><a href="#vhod">Вход</a></li>
+              <li><a href="#registraciya">Регистрация</a></li>
+              <li><a href="#bonuses">Бонусы</a></li>
+              <li><a href="#telegram">Telegram</a></li>
+              <li><a href="#otzyvy">Отзывы</a></li>
+              <li><a href="#games">Игры</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="otzyvy" class="content-section">
+      <div class="container">
+        <h2 class="section-title">Отзывы <span class="text-blue">игроков</span></h2>
+        <div class="glass-card">
+          <ul class="review-list">
+            <li class="review-item">
+              <div class="review-top"><span><b>Артём</b> · 12.01.2026</span><span class="stars">★★★★★</span></div>
+              <div class="prose"><p>Через телегу очень удобно заходить. Не надо каждый раз логин вбивать</p></div>
+            </li>
+            <li class="review-item">
+              <div class="review-top"><span><b>Марина</b> · 28.12.2025</span><span class="stars">★★★★☆</span></div>
+              <div class="prose"><p>Поддержка ночью ответила, помогли с регистрацией</p></div>
+            </li>
+            <li class="review-item">
+              <div class="review-top"><span><b>Игорь</b> · 03.12.2025</span><span class="stars">★★★★★</span></div>
+              <div class="prose"><p>Выиграл 8 тысяч с бонуса, вывели без вопросов. Молодцы</p></div>
+            </li>
+          </ul>
+
+          <div class="internal-links">
+            <h3>Полезные ссылки</h3>
+            <ul>
+              <li><a href="#vhod">Вход</a></li>
+              <li><a href="#registraciya">Регистрация</a></li>
+              <li><a href="#bonuses">Бонусы</a></li>
+              <li><a href="#telegram">Telegram</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="#games">Игры</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+</main>
+
+  <footer id="about" class="footer-section">
+    <div class="container" style="text-align:center;">
+      <a href="https://t.me/+KDEEIyDP6yYzMDUy" class="footer-logo">
+        <img src="images/logo.png" alt="Lucky Bear Logo" style="height:40px;width:auto;" loading="lazy" decoding="async">
+      </a>
+
+      <p class="footer-responsible-text">Играйте ответственно, только для лиц старше 18 лет</p>
+
+      <nav class="footer-nav" aria-label="Навигация футера">
+        <a href="#vhod">Вход</a>
+        <a href="#registraciya">Регистрация</a>
+        <a href="#bonuses">Бонусы</a>
+        <a href="#telegram">Telegram</a>
+        <a href="#faq">FAQ</a>
+        <a href="#otzyvy">Отзывы</a>
+      </nav>
+
+      <hr class="footer-divider"/>
+
+      <div class="footer-seo-block">
+        <strong>Популярные запросы:</strong> казино лаки бир, лаки бир, lucky bear casino, лаки бир официальный сайт, лаки бир вход, lucky bear официальный сайт, казино lucky bear, лаки бир регистрация, lucky bear вход, лаки бир сайт, laki bir, лаки бир играть онлайн, lucky bear играть, лаки бир зеркало, lucky bear зеркало рабочее, лаки бир бонусы, lucky bear casino регистрация, игровые автоматы лаки бир, слоты lucky bear, мобильная версия лаки бир, скачать lucky bear, промокоды лаки бир, lucky bear casino bonuses, промокод на лаки бир, бонус код lucky bear, lucky bear free spins, lucky bear отзывы, казино лаки бир зеркало, lucky bear online casino, лаки бир рабочее зеркало.
+      </div>
+
+      <p class="footer-copyright">© 2025 LuckyBear Casino (Лаки Бир). Все права защищены.</p>
+    </div>
+  </footer>
+
+  <div id="promoModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Промо">
+    <div class="modal-content">
+      <span class="close-modal" aria-label="Закрыть">&times;</span>
+      <img src="images/logo-full.png" alt="Lucky Bear Logo" class="modal-logo" loading="lazy" decoding="async">
+      <h2 class="modal-title">Вам доступно<br/><span>80 фриспинов</span></h2>
+      <a href="https://lbgame777.xyz/8AsylI" class="modal-btn">Забрать</a>
+    </div>
+  </div>
+
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+      // Counters (online + wins) — animated on load
+      function animateCounter(el, to, isRub) {
+        if (!el) return;
+        const start = performance.now();
+        const dur = 900;
+        const fmt = (v) => isRub ? v.toLocaleString("ru-RU") + " ₽" : v.toLocaleString("ru-RU");
+        const tick = (t) => {
+          const p = Math.min(1, (t - start) / dur);
+          const val = Math.floor(to * (1 - Math.pow(1 - p, 3)));
+          el.textContent = fmt(val);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      }
+      animateCounter(document.getElementById("statOnline"), 1247, false);
+      animateCounter(document.getElementById("statWins"), 24568432, true);
+
+      // Slider
+      const sliderWrapper = document.querySelector(".slider-section-wrapper");
+      if (sliderWrapper) {
+        const items = sliderWrapper.querySelectorAll(".slider-item");
+        if (items.length) {
+          let currentIndex = 0;
+          const totalItems = items.length;
+
+          function updateSlider() {
+            items.forEach((item, index) => {
+              item.classList.remove(
+                "center","left-1","left-2","right-1","right-2","hidden-left","hidden-right"
+              );
+              const newIndex = (index - currentIndex + totalItems) % totalItems;
+
+              if (newIndex === 0) item.classList.add("center");
+              else if (newIndex === 1) item.classList.add("right-1");
+              else if (newIndex === 2) item.classList.add("right-2");
+              else if (newIndex === totalItems - 1) item.classList.add("left-1");
+              else if (newIndex === totalItems - 2) item.classList.add("left-2");
+              else if (newIndex === totalItems - 3) item.classList.add("hidden-left");
+              else item.classList.add("hidden-right");
+            });
+          }
+
+          const interval = setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalItems;
+            updateSlider();
+          }, 3200);
+
+          updateSlider();
+          // Pause slider when tab not visible (tiny perf win)
+          let sliderTimer = interval;
+          document.addEventListener("visibilitychange", () => {
+            if (document.hidden) { clearInterval(sliderTimer); }
+            else {
+              sliderTimer = setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalItems;
+                updateSlider();
+              }, 3200);
+            }
+          });
+        }
+      }
+
+      // Modal (show once per session + a bit later so it doesn't раздражать)
+      const modal = document.getElementById("promoModal");
+      const closeBtn = document.querySelector(".close-modal");
+
+      const seenKey = "lb_promo_seen";
+      const hasSeen = sessionStorage.getItem(seenKey) === "1";
+
+      if (modal && !hasSeen) {
+        setTimeout(() => {
+          modal.classList.add("show");
+          sessionStorage.setItem(seenKey, "1");
+        }, 6500);
+      }
+
+      function closeModal() {
+        if (modal) modal.classList.remove("show");
+      }
+      if (closeBtn) closeBtn.addEventListener("click", closeModal);
+      if (modal) {
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeModal();
+        });
+      }
+    });
+  </script>
+</body>
+</html>
