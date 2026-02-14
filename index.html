@@ -1,5 +1,3 @@
-бро привет. зацени мой  сайт
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -438,7 +436,7 @@
       flex-wrap:wrap;
     }
 
-    /* Bonus cards */
+    /* ===== BONUS SECTION WRAPPER (оставляем твой секшен, меняем только карточки ниже) ===== */
     .bonus-section{
       width:100%;
       max-width: 1100px;
@@ -447,70 +445,190 @@
       position:relative;
       z-index:2;
     }
+
+    /* ==============================
+       ✅ NEW BONUS CARDS (красивые, как со старого)
+       ТЕКСТЫ — из твоего текущего сайта (мы не меняли слова),
+       просто даём правильную структуру/стили чтобы не налезало.
+       ============================== */
+
     .bonus-grid{
       display:grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(4, minmax(0,1fr));
       gap: 18px;
+      align-items:stretch;
       width:100%;
     }
+
     .bonus-card{
       position:relative;
-      transition: transform .2s ease, box-shadow .2s ease;
-      border-radius: 18px;
+      border-radius: 22px;
       overflow:hidden;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 20px 60px rgba(0,0,0,.45);
+      transform-style: preserve-3d;
+      will-change: transform;
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      aspect-ratio: 4 / 5; /* красиво и не вытягивает */
     }
-    .bonus-card:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 20px 55px rgba(0,0,0,.35);
-    }
-    .card-bg{
-      width:100%;
-      height:auto;
-      display:block;
-      border-radius: 18px;
-    }
-    .card-content-wrapper{
+
+    .bonus-card::before{
+      content:"";
       position:absolute;
       inset:0;
+      background:
+        radial-gradient(520px 260px at 20% 10%, rgba(43,134,240,.22), transparent 55%),
+        radial-gradient(520px 260px at 80% 15%, rgba(59,130,246,.16), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      filter: saturate(1.05);
+      z-index:0;
+    }
+
+    .bonus-card.active::before{
+      background:
+        radial-gradient(520px 260px at 20% 10%, rgba(43,134,240,.30), transparent 55%),
+        radial-gradient(520px 260px at 80% 15%, rgba(34,197,94,.12), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+    }
+
+    .bonus-card::after{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background: radial-gradient(circle at var(--px,50%) var(--py,50%), rgba(255,255,255,.14), transparent 60%);
+      opacity:0;
+      transition: opacity .25s ease;
+      pointer-events:none;
+      z-index:1;
+    }
+
+    .bonus-card:hover{
+      border-color: rgba(43,134,240,.35);
+      box-shadow: 0 26px 80px rgba(43,134,240,.12), 0 20px 60px rgba(0,0,0,.50);
+    }
+    .bonus-card:hover::after{ opacity:1; }
+
+    /* картинка фона карточки (твои bluecard/blackcard) */
+    .bonus-card .card-bg{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      object-position:center;
+      opacity:.22;              /* чтобы не спорила с текстом */
+      filter: saturate(1.05) contrast(1.05);
+      z-index:0;
+      pointer-events:none;
+    }
+
+    /* новый контент-лейаут вместо absolute-адка */
+    .card-content-wrapper{
+      position:relative;
+      z-index:2;
+      height:100%;
       display:flex;
       flex-direction:column;
       align-items:center;
+      justify-content:center;
       text-align:center;
-      padding-top: 52px;
+      padding: 18px 14px;
+      gap: 12px;
+      backdrop-filter: blur(14px);
     }
-    .icon-wrapper{ position:relative; width:60px; height:60px; margin-bottom: 18px; }
-    .bonus-icon{ width:60px; height:60px; position:absolute; left:0; top:0; transition: opacity .35s ease; }
-    .text-container{ position:relative; min-height: 110px; width:100%; display:flex; align-items:center; justify-content:center; }
-    .bonus-state{ position:absolute; width:100%; padding: 0 14px; transition: opacity .35s ease; }
-    .bonus-default-state{ opacity:1; z-index:2; }
-    .bonus-hover-state{ opacity:0; z-index:1; }
-    .bonus-card.inactive:hover .icon-open{ opacity:1; }
-    .bonus-card.inactive:hover .icon-closed{ opacity:0; }
-    .bonus-card.inactive:hover .bonus-default-state{ opacity:0; }
-    .bonus-card.inactive:hover .bonus-hover-state{ opacity:1; z-index:2; }
-    .bonus-card.active .icon-open{ opacity:1; }
-    .bonus-card.active .icon-closed{ opacity:0; }
-    .bonus-card.active .bonus-default-state{ display:none; }
-    .bonus-card.active .bonus-hover-state{ opacity:1; z-index:2; }
+
+    .icon-wrapper{
+      width: 64px;
+      height: 64px;
+      border-radius: 20px;
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      display:grid;
+      place-items:center;
+      margin: 0;
+      position:relative;
+      overflow:hidden;
+    }
+
+    .bonus-icon{
+      width: 44px;
+      height: 44px;
+      position:absolute;
+      inset:0;
+      margin:auto;
+      object-fit: contain;
+      filter: drop-shadow(0 10px 20px rgba(0,0,0,.35));
+      transition: transform .45s ease, opacity .35s ease;
+    }
+    .bonus-card:hover .bonus-icon{ transform: rotate(-6deg) scale(1.06); }
+
+    .text-container{
+      width:100%;
+      min-height: 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* убираем старую absolute-логику состояний — делаем нормально */
+    .bonus-state{
+      position:static;
+      width:100%;
+      padding:0;
+      transition: opacity .25s ease;
+    }
+    .bonus-default-state{ display:none; }
+    .bonus-hover-state{ opacity:1 !important; }
 
     .bonus-title, .bonus-subtitle, .bonus-subtitle-fs, .bonus-title-simple{
       font-family: var(--font-h);
       text-transform: uppercase;
       display:block;
-      line-height:1.1;
+      line-height:1.06;
+      letter-spacing:.04em;
     }
-    .bonus-title-simple{ font-size: 22px; margin-bottom: 6px; }
-    .bonus-title, .bonus-subtitle, .bonus-subtitle-fs{ font-size: 20px; }
+
+    .bonus-title, .bonus-title-simple{
+      font-size: 20px;
+      opacity:.96;
+    }
+
+    /* “до 360%” и “+ FS” — делаем градиент как на старом */
+    .bonus-subtitle, .bonus-subtitle-fs{
+      font-size: 30px;
+      line-height:1;
+      background: linear-gradient(90deg, rgba(59,130,246,1), rgba(34,197,94,.9));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color: transparent;
+      text-shadow: 0 0 30px rgba(59,130,246,.10);
+      margin-top: 2px;
+    }
+
     .bonus-extra{
       font-family: var(--font-b);
       font-size: 14px;
-      color: rgba(255,255,255,.78);
-      margin-top: 8px;
+      color: rgba(255,255,255,.75);
+      margin-top: 6px;
       display:block;
     }
-    .bonus-details{ filter: blur(6px); opacity:.45; transition: all .35s ease; }
+
+    /* “залоченные” (inactive) — блюрим пока не наведут */
+    .bonus-card.inactive .bonus-subtitle,
+    .bonus-card.inactive .bonus-subtitle-fs,
+    .bonus-card.inactive .bonus-extra{
+      filter: blur(10px);
+      opacity:.55;
+      transition: filter .35s ease, opacity .35s ease;
+    }
+    .bonus-card.inactive:hover .bonus-subtitle,
+    .bonus-card.inactive:hover .bonus-subtitle-fs,
+    .bonus-card.inactive:hover .bonus-extra{
+      filter: blur(0);
+      opacity:1;
+    }
 
     .bonus-cta-wrap{
       display:flex;
@@ -741,7 +859,7 @@
       .main-nav{ flex-wrap:wrap; }
       .nav-list{ flex: 1 1 320px; justify-content:center; }
       .features-grid{ grid-template-columns: repeat(2, 1fr); }
-      .bonus-grid{ grid-template-columns: repeat(2, 1fr); }
+      .bonus-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } /* планшет: 2x2 */
     }
 
     /* ================================
@@ -776,27 +894,38 @@
       .slider-section-wrapper .slider-item.left-1{ transform: translateX(-250px) scale(.70); }
       .slider-section-wrapper .slider-item.right-1{ transform: translateX(250px) scale(.70); }
 
-      /* ====== BONUS: НЕ РЕЖЕТСЯ И НЕ ТЯНЕТСЯ ====== */
+      /* ✅ БОНУСЫ: 2 в строку + 2 снизу (квадратом 4 штуки) */
+      .bonus-grid{
+        grid-template-columns: repeat(2, minmax(0,1fr)) !important;
+        gap: 12px !important;
+      }
       .bonus-card{
-        aspect-ratio: 3 / 4 !important; /* форма как карточка */
+        aspect-ratio: 1 / 1.05 !important;   /* компактный квадратик */
+        border-radius: 18px !important;
       }
-      .bonus-card .card-bg{
-        position:absolute !important;
-        inset:0 !important;
-        width:100% !important;
-        height:100% !important;
-        object-fit: contain !important;     /* КЛЮЧ */
-        object-position: center center !important;
-        background: #0b1220 !important;
+      .card-content-wrapper{
+        padding: 12px 10px !important;
+        gap: 10px !important;
       }
-      .bonus-card .card-content-wrapper{
-        position:absolute !important;
-        inset:0 !important;
-        z-index:2 !important;
-        padding-top: 34px !important;
-        padding-bottom: 18px !important;
+      .icon-wrapper{
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 18px !important;
       }
-      .bonus-card .text-container{ min-height: 90px !important; }
+      .bonus-icon{
+        width: 38px !important;
+        height: 38px !important;
+      }
+      .bonus-title, .bonus-title-simple{
+        font-size: 16px !important;
+      }
+      .bonus-subtitle, .bonus-subtitle-fs{
+        font-size: 20px !important;
+      }
+      .bonus-extra{
+        font-size: 12px !important;
+        margin-top: 4px !important;
+      }
 
       /* ====== ПОЛЕЗНЫЕ ССЫЛКИ: 1 СТРОКА, МАЛЕНЬКО ====== */
       .internal-links ul{
@@ -830,6 +959,7 @@
     }
   </style>
 
+  <!-- ✅ SEO НЕ ТРОГАЛ -->
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Lucky Bear", "url": "https://luckybear24.ru/", "logo": "https://luckybear24.ru/images/logo-full.png"}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная", "item": "https://luckybear24.ru/"}]}</script>
   <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Как зайти в личный кабинет?", "acceptedAnswer": {"@type": "Answer", "text": "Нажми «Играть на сайте» или «Играть в TG». Это два быстрых пути входа: через сайт или Telegram."}}, {"@type": "Question", "name": "Что делать, если страница не открывается?", "acceptedAnswer": {"@type": "Answer", "text": "Проверь интернет, включи VPN по необходимости. Если нужно — заходи через Telegram."}}, {"@type": "Question", "name": "Можно ли играть с телефона?", "acceptedAnswer": {"@type": "Answer", "text": "Да, интерфейс адаптирован под мобильные устройства, кнопки и текст читаемые на экранах смартфонов."}}, {"@type": "Question", "name": "Как получить бонус?", "acceptedAnswer": {"@type": "Answer", "text": "После регистрации доступны бонусы. Выбери пакет в разделе «Бонусы» и активируй его через кнопку."}}, {"@type": "Question", "name": "Где посмотреть игры?", "acceptedAnswer": {"@type": "Answer", "text": "В блоке «Найди свою игру» представлены популярные слоты, можно перейти в игру через кнопку."}}]}</script>
@@ -969,16 +1099,17 @@
       </div>
     </section>
 
+    <!-- ✅ BONUS SECTION: тексты твои, карточки — красивый стиль -->
     <section id="bonuses" class="bonus-section">
       <h2 class="section-title">Забирай <span class="text-blue">бонус</span> по шагам</h2>
 
       <div class="bonus-grid">
-        <div class="bonus-card active">
+        <div class="bonus-card active" data-tilt>
           <img src="images/bluecard.png" alt="Бонус 1" class="card-bg" loading="lazy" decoding="async">
           <div class="card-content-wrapper">
             <div class="icon-wrapper">
               <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async">
-              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async">
+              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async" style="opacity:1;">
             </div>
             <div class="text-container">
               <div class="bonus-state bonus-hover-state" style="opacity:1; z-index:2;">
@@ -990,21 +1121,14 @@
           </div>
         </div>
 
-        <div class="bonus-card inactive">
+        <div class="bonus-card inactive" data-tilt>
           <img src="images/blackcard.png" alt="Бонус 2" class="card-bg" loading="lazy" decoding="async">
           <div class="card-content-wrapper">
             <div class="icon-wrapper">
-              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async">
-              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async">
+              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async" style="opacity:1;">
+              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async" style="opacity:0;">
             </div>
             <div class="text-container">
-              <div class="bonus-state bonus-default-state">
-                <span class="bonus-title-simple">БОНУС</span>
-                <div class="bonus-details">
-                  <span class="bonus-title">до 360%</span>
-                  <span class="bonus-extra">на 2 пополнение</span>
-                </div>
-              </div>
               <div class="bonus-state bonus-hover-state">
                 <span class="bonus-title">БОНУС</span>
                 <span class="bonus-subtitle">ДО 360%</span>
@@ -1014,22 +1138,14 @@
           </div>
         </div>
 
-        <div class="bonus-card inactive">
+        <div class="bonus-card inactive" data-tilt>
           <img src="images/blackcard.png" alt="Бонус 3" class="card-bg" loading="lazy" decoding="async">
           <div class="card-content-wrapper">
             <div class="icon-wrapper">
-              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async">
-              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async">
+              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async" style="opacity:1;">
+              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async" style="opacity:0;">
             </div>
             <div class="text-container">
-              <div class="bonus-state bonus-default-state">
-                <span class="bonus-title-simple">БОНУС</span>
-                <div class="bonus-details">
-                  <span class="bonus-title">до 360%</span>
-                  <span class="bonus-subtitle-fs">+ 50 FS</span>
-                  <span class="bonus-extra">на 3 пополнение</span>
-                </div>
-              </div>
               <div class="bonus-state bonus-hover-state">
                 <span class="bonus-title">БОНУС</span>
                 <span class="bonus-subtitle">ДО 360%</span>
@@ -1040,22 +1156,14 @@
           </div>
         </div>
 
-        <div class="bonus-card inactive">
+        <div class="bonus-card inactive" data-tilt>
           <img src="images/blackcard.png" alt="Бонус 4" class="card-bg" loading="lazy" decoding="async">
           <div class="card-content-wrapper">
             <div class="icon-wrapper">
-              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async">
-              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async">
+              <img src="images/boxc.png" alt="" class="bonus-icon icon-closed" aria-hidden="true" loading="lazy" decoding="async" style="opacity:1;">
+              <img src="images/boxo.png" alt="" class="bonus-icon icon-open" aria-hidden="true" loading="lazy" decoding="async" style="opacity:0;">
             </div>
             <div class="text-container">
-              <div class="bonus-state bonus-default-state">
-                <span class="bonus-title-simple">БОНУС</span>
-                <div class="bonus-details">
-                  <span class="bonus-title">до 360%</span>
-                  <span class="bonus-subtitle-fs">+ 200 FS</span>
-                  <span class="bonus-extra">на 4 пополнение</span>
-                </div>
-              </div>
               <div class="bonus-state bonus-hover-state">
                 <span class="bonus-title">БОНУС</span>
                 <span class="bonus-subtitle">ДО 360%</span>
@@ -1411,6 +1519,31 @@
           if (e.key === "Escape") closeModal();
         });
       }
+
+      /* ✅ tilt для бонусов (как на старом), но мягко и без лагов */
+      (function(){
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) return;
+
+        const cards = document.querySelectorAll('[data-tilt]');
+        cards.forEach(card=>{
+          card.addEventListener('mousemove', (e)=>{
+            const r = card.getBoundingClientRect();
+            const x = ((e.clientX - r.left) / r.width) * 100;
+            const y = ((e.clientY - r.top) / r.height) * 100;
+
+            const rx = (y - 50) * -0.10;
+            const ry = (x - 50) * 0.12;
+
+            card.style.setProperty('--px', x.toFixed(2) + '%');
+            card.style.setProperty('--py', y.toFixed(2) + '%');
+            card.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;
+          });
+          card.addEventListener('mouseleave', ()=>{
+            card.style.transform = '';
+          });
+        });
+      })();
     });
   </script>
 </body>
