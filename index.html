@@ -756,14 +756,9 @@
       .features-grid{ grid-template-columns: repeat(2, 1fr); }
       .bonus-grid{ grid-template-columns: repeat(2, 1fr); }
     }
-    @media (max-width: 576px){
+   @media (max-width: 576px){
 
-  /* NAV */
-  .nav-list{ gap: 10px; }
-  .nav-list a{ font-size: 12px; padding: 8px 10px; }
-  .logo img{ height: 40px; }
-
-  /* HEADER STACK */
+  /* HEADER */
   .main-nav{
     flex-direction: column;
     align-items: center;
@@ -771,7 +766,6 @@
     gap: 10px;
     padding: 10px 12px;
   }
-
   .nav-list{
     flex: none;
     width: 100%;
@@ -779,65 +773,79 @@
     flex-wrap: wrap;
     gap: 8px;
   }
+  .nav-list a{
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+  .logo img{ height: 40px; }
 
-  /* FEATURES + GRID */
+  /* LAYOUT */
   .features-grid{ grid-template-columns: 1fr; }
   .bonus-grid{ grid-template-columns: 1fr; }
-
-  /* SLIDER */
   .slider-section-wrapper .slider-container{ height: 300px; }
   .slider-section-wrapper .slider-item{ width: 260px; height: 260px; }
   .slider-section-wrapper .slider-item.left-1{ transform: translateX(-250px) scale(.70); }
   .slider-section-wrapper .slider-item.right-1{ transform: translateX(250px) scale(.70); }
 
-  /* ===== INTERNAL LINKS (полезные ссылки) — СДЕЛАТЬ МЕНЬШЕ ===== */
-  .internal-links ul{
-    display: grid !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 8px !important;
-  }
-
-  .internal-links a{
-    min-height: 34px !important;
-    padding: 7px 8px !important;
-    border-radius: 12px !important;
-    font-size: 11px !important;
-    letter-spacing: .2px !important;
-  }
-
-  /* ===== BONUS CARDS (не резать на мобиле) ===== */
+  /* ===== BONUS CARDS: НЕ РЕЖЕТСЯ (убираем absolute+cover) ===== */
   .bonus-card{
-    position: relative;
-    overflow: hidden;
-    min-height: 260px !important;
+    position: relative !important;
+    overflow: hidden !important;
     height: auto !important;
+    min-height: 0 !important;
+    border-radius: 18px;
   }
 
   .bonus-card .card-bg{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    position: relative !important;   /* ВАЖНО: НЕ absolute */
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;         /* ВАЖНО: авто */
+    object-fit: contain !important;  /* НЕ режем */
+    display: block !important;
+    background: #0b1220;
   }
 
   .bonus-card .card-content-wrapper{
-    position: relative !important;
-    z-index: 2;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 2 !important;
     padding-top: 34px !important;
     padding-bottom: 18px !important;
   }
 
   .bonus-card .text-container{
-    min-height: 120px !important;
+    min-height: 110px !important;
+  }
+
+  /* ===== ПОЛЕЗНЫЕ ССЫЛКИ: НЕ ВЫЛЕЗАЮТ, НОРМАЛЬНЫЕ КНОПКИ ===== */
+  .internal-links ul{
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+  }
+
+  .internal-links a{
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 38px !important;
+    padding: 8px 10px !important;
+    border-radius: 12px !important;
+    font-size: 11px !important;
+    letter-spacing: 0 !important;
+    white-space: normal !important;  /* РАЗРЕШАЕМ ПЕРЕНОС */
+    line-height: 1.1 !important;
+    text-align: center !important;
+    overflow: hidden !important;
+  }
+  @media (min-width: 420px) and (max-width: 576px){
+  .internal-links ul{
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
   }
 }
 .text-container{
   min-height: 70px;
 }
-    }
-
     /* Reduced motion */
     @media (prefers-reduced-motion: reduce){
       *{ scroll-behavior:auto !important; }
