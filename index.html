@@ -757,6 +757,22 @@
       .bonus-grid{ grid-template-columns: repeat(2, 1fr); }
     }
     @media (max-width: 576px){
+      /* === MOBILE USEFUL LINKS FIX === */
+
+.useful-links{
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 6px;
+  overflow-x: auto;
+}
+
+.useful-links a{
+  font-size: 11px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
       .nav-list{ gap: 10px; }
       .nav-list a{ font-size: 13px; padding: 8px 10px; }
       .logo img{ height: 40px; }
@@ -790,16 +806,27 @@
 
 /* === MOBILE BONUS FIX === */
 .bonus-card{
-  aspect-ratio: 16 / 9;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: auto;
+  min-height: 210px;
+  height: auto;
 }
 
-.card-bg{
-  height: 100%;
-  object-fit: cover;
+.bonus-card .card-content-wrapper{
+  position: relative;
+  z-index: 2;
+  padding-top: 30px;
+  padding-bottom: 18px;
 }
 
-.card-content-wrapper{
-  padding-top: 36px;
+.bonus-card .card-bg{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
 }
 
 .text-container{
